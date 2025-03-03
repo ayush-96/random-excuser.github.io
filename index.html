@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input and Output</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Input and Output</h2>
+        <label for="inputText">Enter text:</label>
+        <input type="text" id="inputText" oninput="updateOutput()">
+        
+        <label for="selectOption">Choose an option:</label>
+        <select id="selectOption" onchange="updateOutput()">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+            <option value="Option 3">Option 3</option>
+        </select>
+        
+        <h3>Output:</h3>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function updateOutput() {
+            const inputText = document.getElementById("inputText").value;
+            const selectedOption = document.getElementById("selectOption").value;
+            document.getElementById("output").innerText = `Text: ${inputText} | Selected: ${selectedOption}`;
+        }
+    </script>
+</body>
+</html>
