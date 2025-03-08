@@ -1,8 +1,8 @@
 import random
 from flask import Flask, jsonify, render_template
-from model.db.db_utils import connect_to_db
+from src.model.db.db_utils import connect_to_db
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates')
 
 
 @app.route('/excuse', methods=['GET'])
@@ -21,7 +21,7 @@ def get_strings():
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template(template_folder='.')
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
