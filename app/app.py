@@ -5,7 +5,7 @@ from model.db.db_utils import connect_to_db
 app = Flask(__name__)
 
 
-@app.route('/strings', methods=['GET'])
+@app.route('/getexcuse', methods=['GET'])
 def get_strings():
     try:
         conn, cur = connect_to_db()
@@ -14,7 +14,8 @@ def get_strings():
         cur.close()
         conn.close()
 
-        return jsonify(results[random.randint(0, len(results)-1)])
+        excuse = {"text": results[random.randint(0, len(results)-1)]}
+        return jsonify(excuse)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
