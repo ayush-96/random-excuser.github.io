@@ -1,4 +1,4 @@
-from app.model.db.db_utils import connect_to_db
+from src.model.db.db_utils import connect_to_db
 
 
 conn, cur = connect_to_db()
