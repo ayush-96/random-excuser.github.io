@@ -25,6 +25,7 @@ def batch_write_items(items=None):
     table = dynamodb.Table('excuses')
     if not items:
         items = read_json_file()
+        print(items)
     try:
         with table.batch_writer() as batch:
             for item in items:

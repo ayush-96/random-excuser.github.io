@@ -3,13 +3,12 @@ import os
 
 
 def get_credentials():
-    aws_role_arn = os.getenv("AWS_ROLE_ARN")
 
     session = boto3.Session(profile_name='default')
     sts_client = session.client("sts")
 
     assumed_role = sts_client.assume_role(
-        RoleArn=aws_role_arn,
+        RoleArn="arn:aws:iam::637423653752:role/service-role/random-excuser-role-fgtbon9b",
         RoleSessionName="DynamoDBSession"
     )
 
